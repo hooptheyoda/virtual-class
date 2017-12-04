@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'classrooms/new'
+
+  get 'classrooms/edit'
+
   devise_for :users
   get 'welcome/index'
 	root to: 'welcome#index'

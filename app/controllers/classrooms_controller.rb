@@ -39,6 +39,9 @@ class ClassroomsController < ApplicationController
     redirect_to root_path
   end
 
+  def play
+  end
+  
   private
   def classroom_params
     params.require(:classroom).permit(:subject, :teacher_id, user_ids:[])

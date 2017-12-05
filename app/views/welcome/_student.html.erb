@@ -1,4 +1,16 @@
 <h3>Today's class:</h3>
 <ul>
+  <% now = Time.now %>
+  <% @user.classrooms.each do |cr| %>
+  <%    cr.classroom_schedules.each do |s| %>
+  <%      if s.weekday == now.wday %>
+  <div class="student-class">
+    <a href="/classrooms/<%=cr.id%>/play">
+      <%= cr.subject %>: <%= format_from_to(s) %>
+    </a>
+  </div><br>
+  <%      end %>
+  <%    end %>
+  <% end %>
 </ul>
 <br>

@@ -14,12 +14,12 @@
 <div class="calendar">
 <%
   now = Time.now
-  first = Time.new(now.year,now.month,now.day,0,0,0)
+  first = Time.new(now.year,now.month,1,0,0,0)
   ydim = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
   weekdayname = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
   days = (now.month==2 && Date.gregorian_leap?(now.year)) ? 29 : ydim[now.month]
-  weekday = now.wday
+  weekday = first.wday
 %>
 <% (0...first.wday).each do |d| %>
     <div class="calendar-day blank"></div>
@@ -35,7 +35,17 @@
         <% ClassroomSchedule.where("weekday=#{weekday}").each do |s| %>
         <% cr = Classroom.find(s.classroom_id) %>
         <div class="calendar-event">
+          <% if (d == now.day && s.weekday == now.wday && (@user.schoolrole == 'Teacher' || @user.schoolrole == 'Student')) %>
+          <a href="/classrooms/<%=cr.id%>/play">
           <%= cr.subject %>: <%= format_from_to(s) %>
+          </a>
+          <% elsif @user.schoolrole == 'Tutor' %>
+          <a href="/classrooms/<%=cr.id%>/edit">
+          <%= cr.subject %>: <%= format_from_to(s) %>
+          </a>
+          <% else %>
+          <%= cr.subject %>: <%= format_from_to(s) %>
+          <% end %>
         </div>
         <% end %>
       </div>

@@ -1,14 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :configure_permitted_parameters, if: :devise_controller?
-  protected
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:email, :password, :schoolrole) }
-      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :schoolrole) }
-      devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :current_password, :schoolrole) }
-    end
-
   # GET /resource/sign_up
   # def new
   #   super

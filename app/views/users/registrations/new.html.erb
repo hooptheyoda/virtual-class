@@ -2,13 +2,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="field">
-    <h3>User Role</h3>
-    <%= f.radio_button :schoolrole, 'Teacher' %> Teacher<br />
-    <%= f.radio_button :schoolrole, 'Tutor' %> Tutor<br />
-    <%= f.radio_button :schoolrole, 'Student' %> Student<br />
-</div>
-
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>

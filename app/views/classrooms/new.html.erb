@@ -1,2 +1,10 @@
-<h1>Classrooms#new</h1>
-<p>Find me in app/views/classrooms/new.html.erb</p>
+<h1>Edit Classrooms</h1>
+
+<%= form_width model: @classroom do |f| %>
+<%= f.label :subject %>
+<%= f.text_field :subject %>
+<%= f.label "Teacher: " %>
+<%= f.select :teacher_id,
+      options_from_collection_for_select(User.where(), 'id', 'full_name') %>
+<%= f.submit %>
+<% end %>

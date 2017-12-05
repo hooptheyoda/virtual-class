@@ -1,4 +1,4 @@
-<h1>I'm a <%= current_user.schoolrole %>. What can I do now?</h1>
+<h1>I'm a <%= current_user.schoolrole %>. What can I do today?</h1>
 <% if current_user.schoolrole == 'Teacher' %>
 <% elsif current_user.schoolrole == 'Tutor' %>
   <h3>Manage classrooms:</h3>
@@ -11,6 +11,8 @@
       </li>
     <% end %>
   </ul>
+  <br>
+  <%= link_to "New Classroom", new_classroom_path %>
 <% elsif current_user.schoolrole == 'Student' %>
 <% else %>
 <p>I don't know what can you do.</p>

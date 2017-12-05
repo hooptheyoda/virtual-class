@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :format_hour_minute, :format_from_to
+  def format_hour_minute(tm)
+    "#{tm.hour}:#{tm.min}"
+  end
+
+  def format_from_to(s)
+    "#{format_hour_minute(s.from)} to #{format_hour_minute(s.to)}"
+  end
+
+
   protected
 
     def err_msg (obj)

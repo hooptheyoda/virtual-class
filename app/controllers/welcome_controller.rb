@@ -40,14 +40,6 @@ class WelcomeController < ApplicationController
   end
 
   private
-  def format_hour_minute(tm)
-    "#{tm.hour}:#{tm.min}"
-  end
-
-  def format_from_to(s)
-    "#{format_hour_minute(s.from)} to #{format_hour_minute(s.to)}"
-  end
-
   def check_schedule(cr1,cr2)
     cf = []
     cr1.classroom_schedules.each do |s1|

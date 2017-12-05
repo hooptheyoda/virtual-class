@@ -32,6 +32,12 @@
         <div class="weekday"><%= weekdayname[weekday] %></div>
       </div>
       <div class="day-event">
+        <% ClassroomSchedule.where("weekday=#{weekday}").each do |s| %>
+        <% cr = Classroom.find(s.classroom_id) %>
+        <div class="calendar-event">
+          <%= cr.subject %>: <%= format_from_to(s) %>
+        </div>
+        <% end %>
       </div>
     </div>
 <%

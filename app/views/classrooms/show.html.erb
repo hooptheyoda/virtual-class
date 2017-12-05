@@ -5,7 +5,8 @@
 <ul>
   <% @classroom.classroom_schedules.each do |s| %>
   <li>
-    <%= $weekdayname[s.weekday] %> --
+    <%= $weekdayname[s.weekday] %> -- <%= s.from.hour %>:<%=s.from.min%> to <%= s.to.hour %>:<%=s.to.min%> --
+    <%= link_to "Delete", classroom_schedule_path(s), method: :delete %>
   </li>
   <% end %>
 </ul>
@@ -17,8 +18,8 @@
 <%= f.select :weekday, $weekdayname.map.with_index{|x,i| x=[x,i]} %>
 <br>
 <%= f.label "from: " %><br>
-<%= f.time_select :from, {minute_step: 60} %> to
-<%= f.time_select :timeto, {minute_step: 60} %>
+<%= f.time_select :from, {minute_step: 5} %> to
+<%= f.time_select :to, {minute_step: 5} %>
 <br>
 <%= f.submit "Add" %><br>
 <% end %>

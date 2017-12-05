@@ -8,3 +8,44 @@
 <% else %>
 <p>I don't know what can you do.</p>
 <% end %>
+
+<br>
+<h3>Calendar: </h3>
+<div class="calendar">
+<%
+  now = Time.now
+  first = Time.new(now.year,now.month,now.day,0,0,0)
+  ydim = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+  weekdayname = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+
+  days = (now.month==2 && Date.gregorian_leap?(now.year)) ? 29 : ydim[now.month]
+  weekday = now.wday
+%>
+<% (0...first.wday).each do |d| %>
+    <div class="calendar-day blank"></div>
+<% end %>
+
+<% (1..days).each do |d| %>
+    <div class="calendar-day<%=' disabled' if d < now.day %>">
+      <div class="day-header">
+        <div class="day"><%= d %></div>
+        <div class="weekday"><%= weekdayname[weekday] %></div>
+      </div>
+      <div class="day-event">
+      </div>
+    </div>
+<%
+    weekday += 1
+    weekday %= 7
+  end
+%>
+
+<%
+  (weekday..6).each do |d|
+%>
+    <div class="calendar-day blank"></div>
+<%
+  end
+%>
+
+</div>

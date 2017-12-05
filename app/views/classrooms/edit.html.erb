@@ -1,2 +1,9 @@
-<h1>Classrooms#edit</h1>
-<p>Find me in app/views/classrooms/edit.html.erb</p>
+<h1>Edit Classrooms</h1>
+
+<%= form_with model: @classroom do |f| %>
+<%= f.label :subject %>
+<%= f.text_field :subject %>
+<%= f.label "Teacher: " %>
+<%= f.select :teacher_id, options_from_collection_for_select(User.where("schoolrole = 'Teacher'"), 'id', 'full_name') %>
+<%= f.submit method: :patch%>
+<% end %>

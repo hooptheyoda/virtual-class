@@ -1,0 +1,12 @@
+<h3>Manage classrooms:</h3>
+<ul>
+  <% Classroom.all.each do |room| %>
+    <li>
+      <%= room.subject %> -
+      <%= link_to "Edit", edit_classroom_path(room) %> -
+      <%= link_to "Close", classroom_path(room), method: :delete %> -
+    </li>
+  <% end %>
+</ul>
+<br>
+<%= link_to "New Classroom", new_classroom_path %>

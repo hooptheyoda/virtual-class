@@ -12,15 +12,32 @@ class ClassroomsController < ApplicationController
   end
 
   def create
-    redirect_to root_path
+    @classroom = Classroom.new(classroom_params)
+    if @classroom.save
+      redirect_to root_path
+    else
+      redirect_to new_classroom_path, notice: err_msg(@classroom)
+    end
   end
 
   def update
+    @classroom = Classroom.find(params[:id])
+    if(@classroom.update(classroom_params))
+      redirect_to root_path
+    else
+      redirect_to edit_classroom_path, notice: err_msg(@classroom)
+    end
+  end
+
+  def destroy
+    @classroom = Classroom.find(params[:id])
+    @classroom.destroy
     redirect_to root_path
   end
 
   private
   def classroom_params
+    params.require(:classroom).permit(:subject, :teacher_id)
   end
-  
+
 end

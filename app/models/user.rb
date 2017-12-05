@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_and_belongs_to_many :classrooms
   has_and_belongs_to_many :users, through: :classrooms
+  validates :full_name, presence: true
 end

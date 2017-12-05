@@ -1,10 +1,9 @@
-<h1>Edit Classrooms</h1>
+<h1>New Classrooms</h1>
 
-<%= form_width model: @classroom do |f| %>
+<%= form_with model: @classroom do |f| %>
 <%= f.label :subject %>
 <%= f.text_field :subject %>
 <%= f.label "Teacher: " %>
-<%= f.select :teacher_id,
-      options_from_collection_for_select(User.where(), 'id', 'full_name') %>
+<%= f.select :teacher_id, options_from_collection_for_select(User.where("schoolrole = 'Teacher'"), 'id', 'full_name') %>
 <%= f.submit %>
 <% end %>

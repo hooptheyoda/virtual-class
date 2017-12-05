@@ -1,2 +1,17 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h1>I'm a <%= current_user.schoolrole %>. What can I do now?</h1>
+<% if current_user.schoolrole == 'Teacher' %>
+<% elsif current_user.schoolrole == 'Tutor' %>
+  <h3>Manage classrooms:</h3>
+  <ul>
+    <% Classroom.all.each do |room| %>
+      <li>
+        <%= room.subject %> -
+        <%= link_to "Edit", edit_classroom_path(room) %> -
+        <%= link_to "Close", classroom_path(room), method: :delete %> -
+      </li>
+    <% end %>
+  </ul>
+<% elsif current_user.schoolrole == 'Student' %>
+<% else %>
+<p>I don't know what can you do.</p>
+<% end %>

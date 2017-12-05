@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  get 'classroom_schedules/new'
-
-  get 'classroom_schedules/edit'
-
-  get 'classrooms/new'
-
-  get 'classrooms/edit'
+  resources :classrooms, only: [:new, :edit, :create, :update, :destroy] do
+    resources :classroom_schedules, only: [:new, :edit, :create, :update, :destroy]
+  end
 
   devise_for :users
   get 'welcome/index'

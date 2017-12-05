@@ -15,13 +15,8 @@ class ClassroomSchedulesController < ApplicationController
       end
 
       classroom.classroom_schedules.each do |s|
-        if (s.weekday == cs.weekday)
-          df=mt(s.from)
-          dt=mt(s.to)
-
-          if((sf<df && st>df) || (sf<dt && st>dt) || (df<sf && dt>sf) || (df<st && dt>st) || (sf==df && st==dt))
-            raise "There is a time conflict in the schedule"
-          end
+        if(time_conflict?(cs,s))
+          raise "There is a time conflict in the schedule"
         end
       end
 
@@ -41,9 +36,5 @@ class ClassroomSchedulesController < ApplicationController
   private
   def cs_params
     params.require(:classroom_schedule).permit(:weekday, :from, :to)
-  end
-
-  def mt(t)
-    t.hour*60+t.min
   end
 end

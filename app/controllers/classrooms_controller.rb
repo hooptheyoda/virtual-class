@@ -3,6 +3,10 @@ require 'pry'
 class ClassroomsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @classroom = Classroom.find(params[:id])
+  end
+
   def new
     @classroom = Classroom.new
   end
@@ -37,7 +41,7 @@ class ClassroomsController < ApplicationController
 
   private
   def classroom_params
-    params.require(:classroom).permit(:subject, :teacher_id)
+    params.require(:classroom).permit(:subject, :teacher_id, user_ids:[])
   end
 
 end

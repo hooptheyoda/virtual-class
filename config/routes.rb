@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :classrooms, only: [:new, :edit, :create, :update, :destroy] do
-    resources :classroom_schedules, only: [:new, :edit, :create, :update, :destroy]
-  end
+  resources :classrooms, only: [:show, :new, :edit, :create, :update, :destroy]
+  resources :classroom_schedules, only: [:create, :destroy]
 
   devise_for :users
   get 'welcome/index'

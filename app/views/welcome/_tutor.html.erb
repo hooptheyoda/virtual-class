@@ -4,7 +4,8 @@
     <li>
       <%= room.subject %> -
       <%= link_to "Edit", edit_classroom_path(room) %> -
-      <%= link_to "Close", classroom_path(room), method: :delete %> -
+      <%= link_to "Schedule", classroom_path(room) %> -
+      <%= link_to "Close", classroom_path(room), method: :delete %>
     </li>
   <% end %>
 </ul>

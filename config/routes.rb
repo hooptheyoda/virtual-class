@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'classroom_schedules/new'
+
+  get 'classroom_schedules/edit'
+
   get 'classrooms/new'
 
   get 'classrooms/edit'

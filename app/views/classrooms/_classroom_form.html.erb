@@ -1,0 +1,17 @@
+
+<%= form_with model: @classroom do |f| %>
+<%= f.label :subject %>
+<%= f.text_field :subject %>
+<br>
+<%= f.label "Teacher: " %>
+<%= f.select :teacher_id, options_from_collection_for_select(User.where("schoolrole = 'Teacher'"), 'id', 'full_name') %>
+<br>
+<%= f.label "Students: " %>
+<% students = [] %>
+<% User.where("schoolrole = 'Student'").each do |s| %>
+  <% students.push([s.full_name, s.id]) %>
+<% end %>
+<%= f.select(:user_ids, students, {}, { multiple: true, size: 25 } ) %>
+<br>
+<%= f.submit %>
+<% end %>

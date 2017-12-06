@@ -1,0 +1,25 @@
+<h1>Classroom</h1>
+<p>Subject: <%= @classroom.subject %></p>
+<p>Teacher: <%= User.find(@classroom.teacher_id).full_name %></p>
+<h3>Schedules: </h3>
+<ul>
+  <% @classroom.classroom_schedules.each do |s| %>
+  <li>
+    <%= $weekdayname[s.weekday] %> -- <%= s.from.hour %>:<%=s.from.min%> to <%= s.to.hour %>:<%=s.to.min%> --
+    <%= link_to "Delete", classroom_schedule_path(s), method: :delete %>
+  </li>
+  <% end %>
+</ul>
+
+<h3>New Schedule: </h3>
+<%= form_with(model: ClassroomSchedule.new, local: true) do |f| %>
+<%= hidden_field_tag :classroom_id, @classroom.id %>
+<%= f.label :weekday %><br>
+<%= f.select :weekday, $weekdayname.map.with_index{|x,i| x=[x,i]} %>
+<br>
+<%= f.label "from: " %><br>
+<%= f.time_select :from, {minute_step: 5} %> to
+<%= f.time_select :to, {minute_step: 5} %>
+<br>
+<%= f.submit "Add" %><br>
+<% end %>

@@ -18,12 +18,16 @@ header {
   width: 100vw;
   height: 80px;
   background-color: #2090e0;
+  > * {
+    left: calc((100vw - 420px) / 2);
+    position: absolute;
+    width: 420px;
+  }
+
   p {
     color: white;
   }
   nav {
-    position: absolute;
-    left: 0;
     top: 52px;
     a {
       display: inline-block;
@@ -60,9 +64,10 @@ article {
   text-align: center;
 }
 
-.new_session_form .new_user,
-.new_user_form .new_user,
-.edit_user_form .edit_user {
+.new_user,
+.edit_user,
+.classroom,
+.classroom_schedule_form {
   position: relative;
   left: calc((100vw - 320px) / 2);
   width: 320px;
@@ -89,6 +94,13 @@ article {
   }
 }
 
+.classroom {
+  width: 480px;
+  .field {
+    grid-template-columns: 160px 320px;
+  }
+}
+
 .shared-links {
   a, form input:nth-child(2) {
     display: block;
@@ -99,4 +111,8 @@ article {
   p, h3 {
     text-align: center;
   }
+}
+
+h1 {
+  text-align: center;
 }

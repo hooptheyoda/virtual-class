@@ -1,5 +1,5 @@
 <h2 class="page-label">Log in</h2>
-<div class="new_session_form">
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %>
@@ -29,6 +29,3 @@
 <div class="shared-links">
   <%= render "users/shared/links" %>
 </div>
-
-</div>
-  

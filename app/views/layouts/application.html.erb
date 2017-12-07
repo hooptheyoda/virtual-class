@@ -29,13 +29,12 @@
     <%= yield %>
 
     <div id="library">
-      <button type="button" value="CLICK TO VIEW PROJECT">Libraries Near You</button>
+      <button type="button">Libraries Near You</button>
     </div>
 
     <div id="map" style="margin:0; padding:0; height: 450px;"></div>
 
     <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?v=3&key=&libraries=places" %>
-
 
     <script type="text/javascript">
 

@@ -51,8 +51,8 @@
         request = {
           location: center,
           radius: 8047,
-          types: ['library']
-          // types: ['cafe']
+          types: ['library' && 'cafe']
+
         };
 
         infoWindow = new google.maps.InfoWindow();
@@ -66,8 +66,8 @@
           var request = {
             location: event.latLng,
             radius: 8047,
-            types: ['library']
-            // types: ['cafe']
+            types: ['library' && 'cafe']
+
           };
           service.nearbySearch(request, callback);
         })

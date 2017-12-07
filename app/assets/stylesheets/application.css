@@ -80,6 +80,26 @@
  .footer-distributed h5 span{
  	color:  gold;
  }
+#library{
+  text-align: center;
+padding-bottom: 10px;
+}
+ button{
+   background-color: transparent;
+ padding: 10px;
+   width: 350px;
+   height: 50px;
+   font-family: 'Josefin Sans', sans-serif;
+   font-size: 2em;
+
+
+
+ }
+ button:hover{
+   background-color: black;
+   color: white;
+
+ }
 
 #underLine{
   text-decoration: underline;

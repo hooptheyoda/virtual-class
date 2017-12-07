@@ -50,8 +50,18 @@
 
  .footer-distributed h3{
  	color:  #ffffff;
- 	font: normal 36px 'Cookie', cursive;
+  font-family: 'Cookie', cursive;
+ 	/*font: normal 36px 'Cookie';*/
  	margin: 0;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 36px;
+    line-height: normal;
+
  }
 
  .footer-distributed h3 span{

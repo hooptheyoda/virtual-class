@@ -4,11 +4,194 @@
     <title>VirtualClass</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
   </head>
 
   <body>
+
+    <nav>
+      <%=link_to 'Home', root_path %>
+      <%=link_to 'About', root_path %>
+      <% if !user_signed_in? %>
+        <%= link_to 'Sign in', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: 'are you sure??'} %>
+      <% end %>
+      <%=link_to 'Contact', root_path %>
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+
+    <div id="library">
+      <button type="button">Libraries Near You</button>
+    </div>
+
+    <div id="map" style="margin:0; padding:0; height: 450px;"></div>
+
+    <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?v=3&key=&libraries=places" %>
+
+    <script type="text/javascript">
+
+      var map;
+      var infoWindow;
+
+      var request;
+      var service;
+      var markers = [];
+
+      function initialize() {
+        var center = new google.maps.LatLng(39.9559437, -75.1691061674);
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: center,
+          zoom: 13
+
+        });
+
+        request = {
+          location: center,
+          radius: 8047,
+          types: ['library']
+
+        };
+
+        infoWindow = new google.maps.InfoWindow();
+
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+
+        google.maps.event.addListener(map, 'rightclick', function (event) {
+          map.setCenter(event.latLng)
+          clearResults(markers)
+          var request = {
+            location: event.latLng,
+            radius: 8047,
+            types: ['library']
+
+          };
+          service.nearbySearch(request, callback);
+        })
+
+      }
+
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            markers.push(createMarker(results[i]));
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({map: map, position: place.geometry.location});
+
+        google.maps.event.addListener(marker, 'click', function () {
+          infoWindow.setContent(place.name);
+          infoWindow.open(map, this);
+        });
+        return marker;
+      }
+
+      function clearResults(markers) {
+        for (var m in markers) {
+          markers[m].setMap(null)
+
+        }
+        markers = []
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+    <footer class="footer-distributed">
+
+      <div class="footer-left">
+
+        <h3>Virtual<span>
+            - School</span></h3>
+        <hr width="40%">
+        <h5>Team<span>
+            - Members</span></h5>
+
+      </div>
+      <div style="display: inline-flex; width: 25px; height: 100px;">
+        <hr style="margin: 0px 0px 0px 12.5px;">
+      </div>
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span id="underLine">MD ALAM</span>
+          <a href="http://alamwebtech.com/portfolio/">Portfolio Website</a>
+          <br>
+          <a href="http://alamwebtech.com/portfolio/">Linkedin</a>
+          <br>
+          <a href="http://alamwebtech.com/portfolio/">Github</a>
+
+        </p>
+
+      </div>
+      <div style="display: inline-flex; width: 25px; height: 100px;">
+        <hr style="margin: 0px 0px 0px 12.5px;">
+      </div>
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span id="underLine">JOHN WALLACE</span>
+          <a href="http://alamwebtech.com/portfolio/">Portfolio Website</a>
+          <br>
+
+              <a href="http://alamwebtech.com/portfolio/">Linkedin</a>
+          <br>
+        <a href="http://alamwebtech.com/portfolio/">Github</a>
+
+        </p>
+
+      </div>
+
+      <div style="display: inline-flex; width: 25px; height: 100px;">
+        <hr style="margin: 0px 0px 0px 12.5px;">
+      </div>
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span id="underLine">RAVEN HOOPER</span>
+          <a href="http://alamwebtech.com/portfolio/">Portfolio Website</a>
+          <br>
+          <a href="http://alamwebtech.com/portfolio/">Linkedin</a>
+          <br>
+          <a href="http://alamwebtech.com/portfolio/">Github</a>
+        </p>
+
+      </div>
+
+      <div style="display: inline-flex; width: 25px; height: 100px;">
+        <hr style="margin: 0px 0px 0px 12.5px;">
+      </div>
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span id="underLine">GEORGE DONG</span>
+          <a href="https://www.gsdong.com/">Portfolio Website</a>
+          <br>
+          <a href="https://www.linkedin.com/in/george-sy-dong/">Linkedin</a>
+
+          <br>
+          <a href="https://github.com/GeorgeDonald">Github</a>
+
+        </p>
+
+      </div>
+
+    </footer>
+
+
     <header>
       <p class="notice"><%= notice %></p>
   		<p class="alert"><%= alert %></p>
@@ -31,5 +214,6 @@
     </article>
     <footer>
     </footer>
+
   </body>
 </html>

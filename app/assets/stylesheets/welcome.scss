@@ -2,6 +2,44 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@mixin linkbutton($width){
+  text-decoration: none;
+  width: $width;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  color: white;
+  background-color: darkblue;
+}
+
+header {
+  top: 0;
+  position: fixed;
+  width: 100vw;
+  height: 80px;
+  background-color: #2090e0;
+  > * {
+    left: calc((100vw - 420px) / 2);
+    position: absolute;
+    width: 420px;
+  }
+
+  p {
+    color: white;
+  }
+  nav {
+    top: 52px;
+    a {
+      display: inline-block;
+      @include linkbutton(80px);
+    }
+  }
+}
+
+article {
+  margin-top: 100px;
+}
+
 .calendar {
   display: grid;
   grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
@@ -20,4 +58,61 @@
 .disabled, .blank {
   background-color: white;
   color: grey;
+}
+
+.page-label {
+  text-align: center;
+}
+
+.new_user,
+.edit_user,
+.classroom,
+.classroom_schedule_form {
+  position: relative;
+  left: calc((100vw - 320px) / 2);
+  width: 320px;
+  .field, .info {
+    margin-bottom: 16px;
+  }
+
+  .field {
+    display: grid;
+    grid-template-columns: 160px 160px;
+    label {
+      text-align: right;
+      padding-right: 8px;
+    }
+  }
+
+  .info, .info em, .info i {
+    text-align: center;
+    width: 100%;
+  }
+
+  .actions input {
+    width: 160px;
+  }
+}
+
+.classroom {
+  width: 480px;
+  .field {
+    grid-template-columns: 160px 320px;
+  }
+}
+
+.shared-links {
+  a, form input:nth-child(2) {
+    display: block;
+    position: relative;
+    @include linkbutton(320px);
+    left: calc((100vw - 320px) / 2);
+  }
+  p, h3 {
+    text-align: center;
+  }
+}
+
+h1 {
+  text-align: center;
 }

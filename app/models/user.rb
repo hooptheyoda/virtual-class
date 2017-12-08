@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_and_belongs_to_many :classrooms
   validates :full_name, presence: true
+  has_many :chat_rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
 end

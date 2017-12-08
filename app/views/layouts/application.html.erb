@@ -20,6 +20,7 @@
         <%= link_to 'Sign Up', new_user_registration_path %>
       <% end %>
       <% if user_signed_in? %>
+        <%= link_to 'Chat Room', chat_rooms_path %>
         <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: 'are you sure??'} %>
       <% end %>
       <%=link_to 'Contact', root_path %>

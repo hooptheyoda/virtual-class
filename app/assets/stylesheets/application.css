@@ -14,12 +14,21 @@
  *= require_self
  */
  @import "bootstrap";
-
+ @import 'global';
  /*html, body, #map{
  	height:80%;
  	margin: 0px;
  	padding: 0px;
  }*/
+
+ .board {
+ float: left;
+
+ }
+
+ .chatroom {
+ float: right;
+ }
 
  .footer-distributed{
  	background-color: #292c2f;

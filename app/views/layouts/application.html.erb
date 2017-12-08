@@ -5,29 +5,34 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
   </head>
 
   <body>
-
-    <nav>
-      <%=link_to 'Home', root_path %>
-      <%=link_to 'About', root_path %>
-      <% if !user_signed_in? %>
-        <%= link_to 'Sign in', new_user_session_path %>
-        <%= link_to 'Sign Up', new_user_registration_path %>
-      <% end %>
-      <% if user_signed_in? %>
-        <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: 'are you sure??'} %>
-      <% end %>
-      <%=link_to 'Contact', root_path %>
-    </nav>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <header>
+      <p class="notice"><%= notice %></p>
+  		<p class="alert"><%= alert %></p>
+      <nav>
+        <%=link_to 'Home', root_path %>
+        <%=link_to 'About', root_path %>
+        <% if !user_signed_in? %>
+    	  	<%= link_to 'Sign in',  new_user_session_path %>
+    	  	<%= link_to 'Sign Up', new_user_registration_path %>
+    	  <% end %>
+      	<% if user_signed_in? %>
+          <%= link_to 'Edit', edit_user_registration_path %>
+    	  	<%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: 'are you sure??'} %>
+      	<% end %>
+        <%=link_to 'Contact', root_path %>
+      </nav>
+    </header>
+    <article class="">
+      <%= yield %>
+    </article>
 
     <div id="library">
       <button type="button">Libraries Near You</button>
@@ -189,30 +194,6 @@
 
       </div>
 
-    </footer>
-
-
-    <header>
-      <p class="notice"><%= notice %></p>
-  		<p class="alert"><%= alert %></p>
-      <nav>
-        <%=link_to 'Home', root_path %>
-        <%=link_to 'About', root_path %>
-        <% if !user_signed_in? %>
-    	  	<%= link_to 'Sign in',  new_user_session_path %>
-    	  	<%= link_to 'Sign Up', new_user_registration_path %>
-    	  <% end %>
-      	<% if user_signed_in? %>
-          <%= link_to 'Edit', edit_user_registration_path %>
-    	  	<%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: 'are you sure??'} %>
-      	<% end %>
-        <%=link_to 'Contact', root_path %>
-      </nav>
-    </header>
-    <article class="">
-      <%= yield %>
-    </article>
-    <footer>
     </footer>
 
   </body>

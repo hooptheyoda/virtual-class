@@ -1,0 +1,50 @@
+<h1>Classroom</h1>
+<div class="classroom_info">
+  <p>Subject: <%= @classroom.subject %></p>
+  <p>Teacher:
+    <% begin %>
+      <% user = User.find(@classroom.teacher_id) %>
+      <% if user != nil && user.schoolrole == 'Teacher' %>
+      <%= user.full_name %>
+      <% else %>
+      <i> was deleted or changed role. </i>
+      <% end %>
+    <% rescue %>
+      <i> (was deleted or changed role.) </i>
+    <% end %>
+  </p>
+  <h3>Schedules: </h3>
+  <ul>
+    <% @classroom.classroom_schedules.each do |s| %>
+    <li>
+      <%= $weekdayname[s.weekday] %> -- <%= s.from.hour %>:<%=s.from.min%> to <%= s.to.hour %>:<%=s.to.min%> --
+      <%= link_to "Delete", classroom_schedule_path(s), method: :delete %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= form_with(model: ClassroomSchedule.new, local: true, class: "classroom_schedule_form") do |f| %>
+<h3>New Schedule: </h3>
+<%= hidden_field_tag :classroom_id, @classroom.id %>
+<div class="field">
+  <%= f.label :weekday %>
+  <%= f.select :weekday, $weekdayname.map.with_index{|x,i| x=[x,i]} %>
+</div>
+<div class="field">
+  <%= f.label "from: " %>
+  <div class="">
+    <%= f.time_select :from, {minute_step: 5} %>
+  </div>
+</div>
+<div class="field">
+  <%= f.label "to: " %>
+  <div class="">
+    <%= f.time_select :to, {minute_step: 5} %>
+  </div>
+</div>
+<div class="field">
+  <div class=""></div>
+  <%= f.submit "Add" %><br>
+</div>
+<% end %>

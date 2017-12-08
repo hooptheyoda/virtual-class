@@ -6,7 +6,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <%= javascript_include_tag 'whiteboard' %>
+    <%= stylesheet_link_tag 'goog' %>
+    <%= stylesheet_link_tag 'whiteboard' %>
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
@@ -48,6 +50,11 @@
     <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?v=3&key=&libraries=places" %>
 
     <script type="text/javascript">
+    whiteboard = bay.whiteboard.Create();
+    whiteboard.linkWebSocket('ws://localhost:8080/examples/websocket/whiteboard', 1000, 500);
+    whiteboard.render(document.getElementById('whiteboard'));
+    goog.style.setStyle(whiteboard.elements.drawElement, {"background-color":"bisque"});
+
 
       var map;
       var infoWindow;

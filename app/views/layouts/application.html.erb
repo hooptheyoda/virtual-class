@@ -5,14 +5,39 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
   </head>
 
   <body>
+<<<<<<< HEAD
 
     
+=======
+    <header>
+      <p class="notice"><%= notice %></p>
+  		<p class="alert"><%= alert %></p>
+      <nav>
+        <%=link_to 'Home', root_path %>
+        <%=link_to 'About', root_path %>
+        <% if !user_signed_in? %>
+    	  	<%= link_to 'Sign in',  new_user_session_path %>
+    	  	<%= link_to 'Sign Up', new_user_registration_path %>
+    	  <% end %>
+      	<% if user_signed_in? %>
+          <%= link_to 'Edit', edit_user_registration_path %>
+    	  	<%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: 'are you sure??'} %>
+      	<% end %>
+        <%=link_to 'Contact', root_path %>
+      </nav>
+    </header>
+    <article class="">
+      <%= yield %>
+    </article>
+>>>>>>> 1433cb39d2cdd990d4ed7078c87b29a8959d744e
 
     <div id="library">
       <button type="button">Libraries Near You</button>

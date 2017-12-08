@@ -51,9 +51,12 @@ article {
 .calendar-day {
   width: 100%;
   height: 216px;
-  background-color: green;
+  background-color: #7d7b7f;
   border: 1px solid red;
   color: white;
+  a {
+    color: white;
+  }
 }
 
 .disabled, .blank {

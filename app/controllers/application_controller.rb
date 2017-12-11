@@ -1,4 +1,5 @@
 $weekdayname = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+$officeid = 99999999
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception

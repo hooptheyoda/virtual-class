@@ -1,8 +1,17 @@
+require 'pry'
+
 class WelcomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
     @user = current_user
+    begin
+      office = Classroom.where("id = #{$officeid}")
+      if(office.empty?)
+        Classroom.create(id: $officeid, subject: "Office",teacher_id: $officeid)
+      end
+    rescue
+    end
   end
 
   def check_conflicts

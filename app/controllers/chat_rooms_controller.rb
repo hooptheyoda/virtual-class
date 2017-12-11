@@ -21,6 +21,27 @@ before_action :coerce_json, :authenticate_user!
 
   def show
     @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+    classroom = Classroom.find(params[:id])
+    if(classroom==nil)
+      redirect_to root_path
+      return
+    end
+
+    if(@chat_room == nil)
+      if(current_user.schoolrole == 'Student')
+        redirect_to root_path, notice: "The class room is opened yet."
+        return
+      end
+
+      @chat_room = ChatRoom.new
+      @chat_room.id = params[:id]
+      @chat_room.title = classroom.subject
+      @chat_room.user_id = current_user.id
+      if(!@chat_room.save)
+        redirect_to root_path, notice: "cannot create chat room."
+        return
+      end
+    end
     @message = Message.new
   end
 
@@ -36,7 +57,7 @@ before_action :coerce_json, :authenticate_user!
           request.format = 'json'
       end
   end
-  
+
   def chat_room_params
     params.require(:chat_room).permit(:title)
   end

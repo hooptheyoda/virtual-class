@@ -29,7 +29,7 @@ before_action :coerce_json, :authenticate_user!
 
     if(@chat_room == nil)
       if(current_user.schoolrole == 'Student')
-        redirect_to root_path, notice: "The class room is not open yet."
+        redirect_to root_path, notice: "The class room is opened yet."
         return
       end
 

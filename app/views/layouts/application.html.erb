@@ -18,6 +18,10 @@
   </head>
 
   <body>
+
+
+
+
     <header>
       <p class="notice"><%= notice %></p>
   		<p class="alert"><%= alert %></p>
@@ -38,6 +42,95 @@
     <article class="">
       <%= yield %>
     </article>
+
+
+
+    <div id="library">
+      <button type="button">Libraries Near You</button>
+    </div>
+
+    <div id="map" style="margin:0; padding:0; height: 450px;"></div>
+
+    <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?v=3&key=&libraries=places" %>
+
+    <script type="text/javascript">
+    whiteboard = bay.whiteboard.Create();
+    whiteboard.linkWebSocket('ws://localhost:8080/examples/websocket/whiteboard', 1000, 500);
+    whiteboard.render(document.getElementById('whiteboard'));
+    goog.style.setStyle(whiteboard.elements.drawElement, {"background-color":"bisque"});
+
+
+      var map;
+      var infoWindow;
+
+      var request;
+      var service;
+      var markers = [];
+
+      function initialize() {
+        var center = new google.maps.LatLng(39.9559437, -75.1691061674);
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: center,
+          zoom: 13
+
+        });
+
+        request = {
+          location: center,
+          radius: 8047,
+          types: ['library']
+
+        };
+
+        infoWindow = new google.maps.InfoWindow();
+
+        service = new google.maps.places.PlacesService(map);
+        service.nearbySearch(request, callback);
+
+        google.maps.event.addListener(map, 'rightclick', function (event) {
+          map.setCenter(event.latLng)
+          clearResults(markers)
+          var request = {
+            location: event.latLng,
+            radius: 8047,
+            types: ['library']
+
+          };
+          service.nearbySearch(request, callback);
+        })
+
+      }
+
+      function callback(results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            markers.push(createMarker(results[i]));
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({map: map, position: place.geometry.location});
+
+        google.maps.event.addListener(marker, 'click', function () {
+          infoWindow.setContent(place.name);
+          infoWindow.open(map, this);
+        });
+        return marker;
+      }
+
+      function clearResults(markers) {
+        for (var m in markers) {
+          markers[m].setMap(null)
+
+        }
+        markers = []
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
 
     <footer class="footer-distributed">
       <%= render "welcome/footer" %>

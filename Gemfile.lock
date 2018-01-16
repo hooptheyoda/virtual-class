@@ -111,9 +111,9 @@ GEM
     nokogiri (1.8.1-x86-mingw32)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    pg (1.0.0)
-    pg (1.0.0-x64-mingw32)
-    pg (1.0.0-x86-mingw32)
+    pg (0.21.0)
+    pg (0.21.0-x64-mingw32)
+    pg (0.21.0-x86-mingw32)
     popper_js (1.12.5)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -221,7 +221,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.5)
   jquery-rails
-  pg
+  pg (~> 0.20)
   pry
   pry-byebug
   puma (~> 3.7)

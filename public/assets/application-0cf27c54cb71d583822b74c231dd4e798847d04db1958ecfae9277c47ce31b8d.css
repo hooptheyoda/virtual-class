@@ -1,0 +1,1043 @@
+/* line 7, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/global.scss */
+#messages {
+  height: calc(100% - 120px);
+  overflow-y: auto;
+  margin-top: 0;
+}
+/* line 11, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/global.scss */
+#messages .avatar {
+  margin: 1rem;
+  margin-left: 0rem;
+}
+/* ************************* goog dialog.css *********************** */
+
+.modal-dialog {
+  background: #c1d9ff;
+  border: 1px solid #3a5774;
+  color: #000;
+  padding: 4px;
+  position: absolute;
+  border-radius: 8px;
+}
+
+.modal-dialog-bg {
+  background: #666;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.modal-dialog-title {
+  background: #e0edfe;
+  color: #000;
+  cursor: pointer;
+  font-size: 120%;
+  font-weight: bold;
+
+  /* Add padding on the right to ensure the close button has room. */
+  padding: 8px 31px 8px 8px;
+
+  position: relative;
+  _zoom: 1; /* Ensures proper width in IE6 RTL. */
+}
+
+.modal-dialog-buttons,
+.modal-dialog-content {
+  background-color: #fff;
+  padding: 8px;
+}
+
+.goog-buttonset-default {
+  font-weight: bold;
+}
+
+/* **************************** Goog menu.css ************************* */
+.goog-menu {
+  background: #fff;
+  border-color: #ccc #666 #666 #ccc;
+  border-style: solid;
+  border-width: 1px;
+  cursor: default;
+  font: normal 13px Arial, sans-serif;
+  margin: 0;
+  outline: none;
+  padding: 4px 0;
+  position: absolute;
+  z-index: 20000; /* Arbitrary, but some apps depend on it... */
+}
+
+/* *************************** Goog menuitem.css *************************** */
+.goog-menuitem {
+  color: #000;
+  font: normal 13px Arial, sans-serif;
+  list-style: none;
+  margin: 0;
+  /* 28px on the left for icon or checkbox; 7em on the right for shortcut. */
+  padding: 4px 7em 4px 28px;
+  white-space: nowrap;
+}
+
+/* BiDi override for the resting state. */
+/* @noflip */
+.goog-menuitem.goog-menuitem-rtl {
+  /* Flip left/right padding for BiDi. */
+  padding-left: 7em;
+  padding-right: 28px;
+}
+
+/* If a menu doesn't have checkable items or items with icons, remove padding. */
+.goog-menu-nocheckbox .goog-menuitem,
+.goog-menu-noicon .goog-menuitem {
+  padding-left: 12px;
+}
+
+/*
+ * If a menu doesn't have items with shortcuts, leave just enough room for
+ * submenu arrows, if they are rendered.
+ */
+.goog-menu-noaccel .goog-menuitem {
+  padding-right: 20px;
+}
+
+.goog-menuitem-content {
+  color: #000;
+  font: normal 13px Arial, sans-serif;
+}
+
+/* State: disabled. */
+.goog-menuitem-disabled .goog-menuitem-accel,
+.goog-menuitem-disabled .goog-menuitem-content {
+  color: #ccc !important;
+}
+.goog-menuitem-disabled .goog-menuitem-icon {
+  opacity: 0.3;
+  -moz-opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+/* State: hover. */
+.goog-menuitem-highlight,
+.goog-menuitem-hover {
+  background-color: #d6e9f8;
+  /* Use an explicit top and bottom border so that the selection is visible
+   * in high contrast mode. */
+  border-color: #d6e9f8;
+  border-style: dotted;
+  border-width: 1px 0;
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+
+/* State: selected/checked. */
+.goog-menuitem-checkbox,
+.goog-menuitem-icon {
+  background-repeat: no-repeat;
+  height: 16px;
+  left: 6px;
+  position: absolute;
+  right: auto;
+  vertical-align: middle;
+  width: 16px;
+}
+
+/* BiDi override for the selected/checked state. */
+/* @noflip */
+.goog-menuitem-rtl .goog-menuitem-checkbox,
+.goog-menuitem-rtl .goog-menuitem-icon {
+  /* Flip left/right positioning. */
+  left: auto;
+  right: 6px;
+}
+
+.goog-option-selected .goog-menuitem-checkbox,
+.goog-option-selected .goog-menuitem-icon {
+  /* Client apps may override the URL at which they serve the sprite. */
+  background: url(image/editortoolbar.png) no-repeat -512px 0;
+}
+
+/* Keyboard shortcut ("accelerator") style. */
+.goog-menuitem-accel {
+  color: #999;
+  /* Keyboard shortcuts are untranslated; always left-to-right. */
+  /* @noflip */ direction: ltr;
+  left: auto;
+  padding: 0 6px;
+  position: absolute;
+  right: 0;
+  text-align: right;
+}
+
+/* BiDi override for shortcut style. */
+/* @noflip */
+.goog-menuitem-rtl .goog-menuitem-accel {
+  /* Flip left/right positioning and text alignment. */
+  left: 0;
+  right: auto;
+  text-align: left;
+}
+
+/* Mnemonic styles. */
+.goog-menuitem-mnemonic-hint {
+  text-decoration: underline;
+}
+
+.goog-menuitem-mnemonic-separator {
+  color: #999;
+  font-size: 12px;
+  padding-left: 4px;
+}
+
+/* ************************* goog menubutton.css *********************** */
+/* State: resting. */
+.goog-menu-button {
+  /* Client apps may override the URL at which they serve the image. */
+  background: #ddd url(image/button-bg.gif) repeat-x top left;
+  border: 0;
+  color: #000;
+  cursor: pointer;
+  list-style: none;
+  margin: 2px;
+  outline: none;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+/* Pseudo-rounded corners. */
+.goog-menu-button-outer-box,
+.goog-menu-button-inner-box {
+  border-style: solid;
+  border-color: #aaa;
+  vertical-align: top;
+}
+.goog-menu-button-outer-box {
+  margin: 0;
+  border-width: 1px 0;
+  padding: 0;
+}
+.goog-menu-button-inner-box {
+  margin: 0 -1px;
+  border-width: 0 1px;
+  padding: 3px 4px;
+}
+
+/* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. */
+* html .goog-menu-button-inner-box {
+  /* IE6 needs to have the box shifted to make the borders line up. */
+  left: -1px;
+}
+
+/* Pre-IE7 BiDi fixes. */
+* html .goog-menu-button-rtl .goog-menu-button-outer-box {
+  /* @noflip */ left: -1px;
+  /* @noflip */ right: auto;
+}
+* html .goog-menu-button-rtl .goog-menu-button-inner-box {
+  /* @noflip */ right: auto;
+}
+
+/* IE7-only hack; ignored by all other browsers. */
+*:first-child+html .goog-menu-button-inner-box {
+  /* IE7 needs to have the box shifted to make the borders line up. */
+  left: -1px;
+}
+/* IE7 BiDi fix. */
+*:first-child+html .goog-menu-button-rtl .goog-menu-button-inner-box {
+  /* @noflip */ left: 1px;
+  /* @noflip */ right: auto;
+}
+
+/* Safari-only hacks. */
+::root .goog-menu-button,
+::root .goog-menu-button-outer-box,
+::root .goog-menu-button-inner-box {
+  /* Required to make pseudo-rounded corners work on Safari. */
+  line-height: 0;
+}
+::root .goog-menu-button-caption,
+::root .goog-menu-button-dropdown {
+  /* Required to make pseudo-rounded corners work on Safari. */
+  line-height: normal;
+}
+
+/* State: disabled. */
+.goog-menu-button-disabled {
+  background-image: none !important;
+  opacity: 0.3;
+  -moz-opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.goog-menu-button-disabled .goog-menu-button-outer-box,
+.goog-menu-button-disabled .goog-menu-button-inner-box,
+.goog-menu-button-disabled .goog-menu-button-caption,
+.goog-menu-button-disabled .goog-menu-button-dropdown {
+  color: #333 !important;
+  border-color: #999 !important;
+}
+
+/* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. */
+* html .goog-menu-button-disabled {
+  margin: 2px 1px !important;
+  padding: 0 1px !important;
+}
+
+/* IE7-only hack; ignored by all other browsers. */
+*:first-child+html .goog-menu-button-disabled {
+  margin: 2px 1px !important;
+  padding: 0 1px !important;
+}
+
+/* State: hover. */
+.goog-menu-button-hover .goog-menu-button-outer-box,
+.goog-menu-button-hover .goog-menu-button-inner-box {
+  border-color: #9cf #69e #69e #7af !important; /* Hover border wins. */
+}
+
+/* State: active, open. */
+.goog-menu-button-active,
+.goog-menu-button-open {
+  background-color: #bbb;
+  background-position: bottom left;
+}
+
+/* State: focused. */
+.goog-menu-button-focused .goog-menu-button-outer-box,
+.goog-menu-button-focused .goog-menu-button-inner-box {
+  border-color: orange;
+}
+
+/* Caption style. */
+.goog-menu-button-caption {
+  padding: 0 4px 0 0;
+  vertical-align: top;
+}
+
+/* Dropdown arrow style. */
+.goog-menu-button-dropdown {
+  height: 15px;
+  width: 7px;
+  /* Client apps may override the URL at which they serve the sprite. */
+  background: url(image/editortoolbar.png) no-repeat -388px 0;
+  vertical-align: top;
+}
+
+/* Pill (collapsed border) styles. */
+/* TODO(gboyer): Remove specific menu button styles and have any button support being a menu button. */
+.goog-menu-button-collapse-right,
+.goog-menu-button-collapse-right .goog-menu-button-outer-box,
+.goog-menu-button-collapse-right .goog-menu-button-inner-box {
+  margin-right: 0;
+}
+
+.goog-menu-button-collapse-left,
+.goog-menu-button-collapse-left .goog-menu-button-outer-box,
+.goog-menu-button-collapse-left .goog-menu-button-inner-box {
+  margin-left: 0;
+}
+
+.goog-menu-button-collapse-left .goog-menu-button-inner-box  {
+  border-left: 1px solid #fff;
+}
+
+.goog-menu-button-collapse-left.goog-menu-button-checked
+.goog-menu-button-inner-box {
+  border-left: 1px solid #ddd;
+}
+
+/* ************************* goog palette.css *********************** */
+.goog-palette {
+  cursor: default;
+  outline: none;
+}
+
+.goog-palette-table {
+  border: 1px solid #666;
+  border-collapse: collapse;
+  margin: 5px;
+}
+
+.goog-palette-cell {
+  border: 0;
+  border-right: 1px solid #666;
+  cursor: pointer;
+  height: 18px;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  width: 18px;
+}
+
+/* ******************* goog.colorpallete ************************ */
+.goog-palette-cell .goog-palette-colorswatch {
+  border: none;
+  font-size: x-small;
+  height: 18px;
+  position: relative;
+  width: 18px;
+}
+
+.goog-palette-cell-hover .goog-palette-colorswatch {
+  border: 1px solid #fff;
+  height: 16px;
+  width: 16px;
+}
+
+.goog-palette-cell-selected .goog-palette-colorswatch {
+  /* Client apps may override the URL at which they serve the sprite. */
+  background: url(image/editortoolbar.png) no-repeat -368px 0;
+  border: 1px solid #333;
+  color: #fff;
+  font-weight: bold;
+  height: 16px;
+  width: 16px;
+}
+
+.goog-palette-customcolor {
+  background-color: #fafafa;
+  border: 1px solid #eee;
+  color: #666;
+  font-size: x-small;
+  height: 15px;
+  position: relative;
+  width: 15px;
+}
+
+.goog-palette-cell-hover .goog-palette-customcolor {
+  background-color: #fee;
+  border: 1px solid #f66;
+  color: #f66;
+}
+
+/* *************************** goog colormenubutton.css ********************* */
+/* Color indicator. */
+.goog-color-menu-button-indicator {
+  border-bottom: 4px solid #f0f0f0;
+}
+
+/* Thinner padding for color picker buttons, to leave room for the indicator. */
+.goog-color-menu-button .goog-menu-button-inner-box,
+.goog-toolbar-color-menu-button .goog-toolbar-menu-button-inner-box {
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+/* ***************************** goog checkbox.css **************************** */
+.goog-checkbox {
+  border: 1px solid #1C5180;
+  display: -moz-inline-box;
+  display: inline-block;
+  font-size: 1px;  /* Fixes the height in IE6 */
+  height: 11px;
+  margin: 0 4px 0 1px;
+  vertical-align: text-bottom;
+  width: 11px;
+}
+
+.goog-checkbox-checked {
+  background: #ccc url(image/check-sprite.gif) no-repeat 2px center;
+}
+
+.goog-checkbox-undetermined {
+  background: #bbb url(image/check-sprite.gif) no-repeat 2px center;
+}
+
+.goog-checkbox-unchecked {
+  background: #fff;
+}
+
+.goog-checkbox-disabled {
+  border: 1px solid lightgray;
+  background-position: -7px;
+}
+
+/* ***************************** goog tooltip.css **************************** */
+.goog-tooltip {
+  background: #ffe;
+  border: 1px solid #999;
+  border-width: 1px 2px 2px 1px;
+  padding: 6px;
+  z-index: 30000;
+}
+/* line 15, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+header {
+  top: 0;
+  position: fixed;
+  width: 100vw;
+  height: 80px;
+  background-color: #2090e0;
+  z-index: 999;
+}
+/* line 22, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+header > * {
+  left: calc((100vw - 420px) / 2);
+  position: absolute;
+  width: 420px;
+}
+/* line 28, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+header p {
+  color: white;
+}
+/* line 31, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+header nav {
+  top: 52px;
+}
+/* line 33, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+header nav a {
+  display: inline-block;
+  text-decoration: none;
+  width: 80px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  color: white;
+  background-color: darkblue;
+}
+
+/* line 40, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+article {
+  margin-top: 100px;
+}
+
+/* line 44, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.calendar {
+  display: grid;
+  grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 51, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.calendar-day {
+  width: 100%;
+  height: 216px;
+  background-color: #7d7b7f;
+  border: 1px solid red;
+  color: white;
+}
+/* line 57, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.calendar-day a {
+  color: white;
+}
+
+/* line 62, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.disabled, .blank {
+  background-color: white;
+  color: grey;
+}
+
+/* line 67, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.page-label {
+  text-align: center;
+}
+
+/* line 71, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.new_user,
+.edit_user,
+.classroom,
+.classroom_schedule_form {
+  position: relative;
+  left: calc((100vw - 320px) / 2);
+  width: 320px;
+}
+/* line 78, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.new_user .field, .new_user .info,
+.edit_user .field,
+.edit_user .info,
+.classroom .field,
+.classroom .info,
+.classroom_schedule_form .field,
+.classroom_schedule_form .info {
+  margin-bottom: 16px;
+}
+/* line 82, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.new_user .field,
+.edit_user .field,
+.classroom .field,
+.classroom_schedule_form .field {
+  display: grid;
+  grid-template-columns: 160px 160px;
+}
+/* line 85, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.new_user .field label,
+.edit_user .field label,
+.classroom .field label,
+.classroom_schedule_form .field label {
+  text-align: right;
+  padding-right: 8px;
+}
+/* line 91, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.new_user .info, .new_user .info em, .new_user .info i,
+.edit_user .info,
+.edit_user .info em,
+.edit_user .info i,
+.classroom .info,
+.classroom .info em,
+.classroom .info i,
+.classroom_schedule_form .info,
+.classroom_schedule_form .info em,
+.classroom_schedule_form .info i {
+  text-align: center;
+  width: 100%;
+}
+/* line 96, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.new_user .actions input,
+.edit_user .actions input,
+.classroom .actions input,
+.classroom_schedule_form .actions input {
+  width: 160px;
+}
+
+/* line 101, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.classroom {
+  width: 480px;
+}
+/* line 103, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.classroom .field {
+  grid-template-columns: 160px 320px;
+}
+
+/* line 109, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.shared-links a, .shared-links form input:nth-child(2) {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  width: 320px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  color: white;
+  background-color: darkblue;
+  left: calc((100vw - 320px) / 2);
+}
+/* line 115, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+.shared-links p, .shared-links h3 {
+  text-align: center;
+}
+
+/* line 120, c:/Users/Raven.Raven1/Desktop/NYCDA/Projects/virtual-class/app/assets/stylesheets/welcome.scss */
+h1 {
+  text-align: center;
+}
+td, canvas, button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+table.bwb_layout{
+  width: 100%;
+  height: 600px;
+  table-layout: fixed;
+}
+
+td.bwb_toolbar{
+  width: 50px;
+  height:100%;
+  vertical-align:top;
+}
+
+.bwb_toolbox{
+  position: absolute;
+}
+
+td.bwb_drawarea{
+  width: 100%;
+  height:100%;
+  border: 2px inset;
+  border-radius: 10px;
+}
+
+td.bwb_drawarea svg{
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}
+
+.bwb_toolbarButton {
+  border: 2px outset;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position:center;
+  background-color: WhiteSmoke;
+  background-size: 90% 90%;
+  display: inline-block;
+}
+
+.bwb_toolbarButton.info {
+  background-image: url('/image/info.gif');
+}
+.bwb_infoCursor {
+  cursor: url('/image/info-pointer.gif'),auto;
+}
+.bwb_toolbarButton.zoom-in {
+  background-image: url('/image/zoom-in.gif');
+}
+.bwb_toolbarButton.zoom-out {
+  background-image: url('/image/zoom-out.gif');
+}
+.bwb_toolbarButton.tools {
+  background-image: url('/image/tools.gif');
+}
+.bwb_toolbarButton.coordinates {
+  background-image: url('/image/coordinates.gif');
+}
+.bwb_toolbarButton.eraseAll {
+  background-image: url('/image/trash.gif');
+}
+.bwb_toolbarButton.eraseTrace {
+  background-image: url('/image/eraser.gif');
+}
+.bwb_toolbarButton.geometry {
+  background-image: url('/image/ruler_compass.gif');
+}
+.bwb_toolbarButton.point {
+  background-image: url('/image/point.gif');
+}
+.bwb_toolbarButton.ruler {
+  background-image: url('/image/line.gif');
+}
+.bwb_toolbarButton.segment {
+  background-image: url('/image/segment.gif');
+}
+.bwb_toolbarButton.compass {
+  background-image: url('/image/circle1.gif');
+}
+.bwb_toolbarButton.circle {
+  background-image: url('/image/circle2.gif');
+}
+.bwb_pointCursor {
+  cursor: url('/image/point-pointer.gif'),auto;
+}
+.bwb_rulerCursor {
+  cursor: url('/image/ruler-pointer.gif'),auto;
+}
+.bwb_compassCursor {
+  cursor: url('/image/compass-pointer.gif'),auto;
+}
+
+.pencil {
+  background-image: url('/image/pencil.gif');
+}
+.bwb_toolbarButton.curve {
+  background-image: url('../image/curve.gif');
+}
+.bwb_toolbarButton.freeline {
+  background-image: url('/image/freeline.gif');
+}
+.bwb_toolbarButton.rectangle {
+  background-image: url('/image/rectangle.gif');
+}
+.bwb_toolbarButton.pencilcircle {
+  background-image: url('/image/circle.gif');
+}
+.bwb_toolbarButton.text {
+  background-image: url('/image/text.gif');
+}
+.bwb_toolbarButton.underline {
+  background-image: url('/image/underline.gif');
+}
+.bwb_toolbarButton.arrow {
+  background-image: url('/image/arrow.gif');
+}
+.bwb_toolbarButton.pointer {
+  background-image: url('/image/pointer.gif');
+}
+.bwb_curveCursor {
+  cursor: url('/image/curve-pointer.gif'),auto;
+}
+.bwb_pencilLineCursor {
+  cursor: url('/image/freeline-pointer.gif'),auto;
+}
+.bwb_rectCursor {
+  cursor: url('/image/rect-pointer.gif'),auto;
+}
+.bwb_circleCursor {
+  cursor: url('/image/circle-pointer.gif'),auto;
+}
+.bwb_textCursor {
+  cursor: url('/image/text-pointer.gif'),auto;
+}
+.bwb_underlineCursor {
+  cursor: url('/image/underline-pointer.gif'),auto;
+}
+.bwb_arrowCursor {
+  cursor: url('/image/arrow-pointer.gif'),auto;
+}
+.bwb_pointerCursor {
+  cursor: url('/image/pointer-pointer.gif'),auto;
+}
+
+.bwb_toolbarButton.background {
+  background-image: url('image/background.gif');
+}
+.bwb_toolbarButton.clipart {
+  background-image: url('image/clipart.gif');
+}
+.bwb_clipartCursor {
+  cursor: url('image/clipart-pointer.gif'),auto;
+}
+
+.pressedButton {
+  border-style: inset;
+}
+
+.bwb_infoDialog {
+  margin: 3px;
+  border: 3px outset;
+  border-radius: 6px;
+  background-color: WhiteSmoke;
+  position: absolute;
+}
+
+.bwb_infoDialog button{
+  border-radius: 8px;
+}
+
+.bwb_infoDialog .bwb_navigate{
+  border-radius: 8px;
+  width: 20px;
+  height: 20px;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.bwb_infoDialog .bwb_labelInput{
+  border-radius: 3px;
+  width: 80px;
+  display: block;
+  position: relative;
+  left: 3px;
+}
+
+.bwb_infoDialog .bwb_objDesc{
+  font-weight: bold;
+  font-size: 10px;
+  position: relative;
+  left: 3px;
+}
+
+.bwb_infoDialog .bwb_traceCheck{
+  font-weight: bold;
+  font-size: 10px;
+  position: relative;
+  left: 3px;
+  display: inline-block;
+}
+
+.bwb_codeArea{
+  border-radius: 6px;
+  width: 800px;
+  height: 400px;
+}
+
+
+
+.bwb_pictureUrlDialog {
+  margin: 3px;
+  border: 3px outset;
+  border-radius: 6px;
+  background-color: WhiteSmoke;
+  position: absolute;
+}
+
+.bwb_pictureUrlDialog button{
+  border-radius: 8px;
+}
+
+.bwb_pictureUrlInput{
+  border-radius: 3px;
+  width: 600px;
+  display: block;
+  position: relative;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+ @import "bootstrap";
+ @import 'global';
+
+.chat_room_section{
+  width: 100%;
+  height: 600px;
+}
+
+.board {
+float: left;
+width: 58%;
+height: 100%;
+background-color: #2090e0;
+  div {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.chatroom {
+float: right;
+width: 38%;
+height: 100%;
+}
+
+ /*html, body, #map{
+ 	height:80%;
+ 	margin: 0px;
+ 	padding: 0px;
+ }*/
+
+ .footer-distributed{
+ 	background-color: #292c2f;
+ 	-webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+ 	        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+ 	-webkit-box-sizing: border-box;
+ 	        box-sizing: border-box;
+ 	width: 100%;
+ 	text-align: left;
+ 	font: bold 16px sans-serif;
+
+ 	padding: 55px 50px;
+ 	margin-top: 15px;
+ }
+
+ .footer-distributed .footer-left,
+
+ .footer-distributed .footer-right{
+ 	display: inline-block;
+ 	vertical-align: top;
+ }
+
+
+
+ .footer-distributed .footer-left{
+ 	width: 25%;
+ }
+
+
+
+ .footer-distributed h3{
+ 	color:  #ffffff;
+  font-family: 'Cookie', cursive;
+ 	/*font: normal 36px 'Cookie';*/
+ 	margin: 0;
+    font-style: normal;
+    -webkit-font-variant-ligatures: normal;
+            font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 3em;
+    line-height: normal;
+
+ }
+
+ .footer-distributed h3 span{
+ 	color:  #5383d3;
+ }
+
+
+ .footer-distributed h5{
+ 	color:  #ffffff;
+ 	font: normal 30px 'Cookie', cursive;
+ 	margin: 0;
+  font-size: 2em;
+  font-family: 'Josefin Sans', sans-serif;
+ }
+
+ .footer-distributed h5 span{
+ 	color:  gold;
+ }
+#library{
+  text-align: center;
+padding-bottom: 10px;
+}
+ button{
+   background-color: transparent;
+ padding: 10px;
+   /*width: 350px;*/
+   width: 40%;
+   height: 50px;
+   font-family: 'Josefin Sans', sans-serif;
+   font-size: 2em;
+
+
+
+ }
+ button:hover{
+   background-color: black;
+   color: white;
+
+ }
+
+#underLine{
+  text-decoration: underline;
+  -webkit-text-decoration-color: gold;
+          text-decoration-color: gold;
+}
+
+.footer-distributed .footer-right a{
+  color: #f54;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+
+ .footer-distributed .footer-right{
+ 	width: 15%;
+ }
+
+ .footer-distributed .footer-company-about{
+ 	line-height: 20px;
+ 	color:  #92999f;
+ 	font-size: 13px;
+ 	font-weight: normal;
+ 	margin: 0;
+ }
+
+ .footer-distributed .footer-company-about span{
+ 	display: block;
+ 	color:  #ffffff;
+ 	font-size: 14px;
+ 	font-weight: bold;
+ 	margin-bottom: 20px;
+ }
+
+ .footer-distributed .footer-icons{
+ 	margin-top: 25px;
+ }
+
+
+
+ @media (max-width: 880px) {
+
+ 	.footer-distributed{
+ 		font: bold 14px sans-serif;
+ 	}
+
+ 	.footer-distributed .footer-left,
+
+ 	.footer-distributed .footer-right{
+ 		display: block;
+ 		width: 100%;
+ 		margin-bottom: 40px;
+ 		text-align: center;
+ 	}
+
+ }

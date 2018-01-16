@@ -20,7 +20,7 @@ header {
   width: 100vw;
   height: 80px;
   background-color: #2090e0;
-  z-index: 999;
+  z-index: 999; 
   > * {
     left: calc((100vw - 420px) / 2);
     position: absolute;

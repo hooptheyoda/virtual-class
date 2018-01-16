@@ -27,7 +27,7 @@ production:
   adapter: postgresql
   # encoding: utf8
   database: db/production.sqlite3
-  host: 127.0.0.1
+  # host: 127.0.0.1
   # pool: 5
   # username: your_db_username
   # password: your_db_password

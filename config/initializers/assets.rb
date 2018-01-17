@@ -23,7 +23,7 @@
   #   end
   # }
 # Be sure to restart your server when you modify this file.
-Rails.application.config.assets.precompile << Proc.new { |path, fn| fn =~ /public\/assets/ && !%w(.js .css).include?(File.extname(path)) }
+# Rails.application.config.assets.precompile << Proc.new { |path, fn| fn =~ /public\/assets/ && !%w(.js .css).include?(File.extname(path)) }
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( whiteboard.js )

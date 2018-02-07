@@ -23,3 +23,5 @@
   * create rooms in websockets 
   * Admin User
   * Seed
+## Acknowledgements
+  * whiteboard is by https://github.com/bay73/whiteboard.git 

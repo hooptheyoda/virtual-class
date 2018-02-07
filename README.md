@@ -1,6 +1,6 @@
-# Virtual Classroom and Schedule
+# Virtual Classroom
 #### In this application a user can log in as a student, teacher or tutor. 
-#### This application holds a calendar, map intferace and has a classroom that contains a whiteboard and chat room for user to talk to each other. 
+#### This application holds a calendar, map intferace and has a classroom that contains a whiteboard and chat room interface.
 ## To Run Code
    * git clone or download
    * open project folder in git bash terminal (git bash command line)

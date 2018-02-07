@@ -1,6 +1,6 @@
 # Virtual Classroom
 #### In this application a user can log in as a student, teacher or tutor. 
-#### This application holds a calendar, map intferace and has a classroom that contains a whiteboard and chat room interface.
+#### This application contains a calendar, map intferace and has a classroom that holds a whiteboard and chat room interface.
 ## To Run Code
    * git clone or download
    * open project folder in git bash terminal (git bash command line)

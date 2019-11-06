@@ -38,7 +38,13 @@ class ApplicationController < ActionController::Base
     end
 
     def configure_permitted_parameters
+ userRoles
+      devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:email, :password, :schoolrole) }
+      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :schoolrole) }
+      devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :current_password, :schoolrole) }
+
       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:email, :password, :schoolrole, :full_name) }
       devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :current_password, :schoolrole, :full_name) }
+
     end
 end
